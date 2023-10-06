@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가위 바위 보</title>
+  <script>
+    // 컴퓨터와 유저와의 가위바위보
+    // 컴퓨터 : 랜덤하게 가위(1),바위(2),보(3)를 낸다.
+    // 유저 : select해서 [선택] 버튼 누르면, 가위, 바위, 보를 낸다.
+        let win = 0,
+        draw = 0,
+        lose = 0;
+        winRate = 0;
+        function gameStart() {
+
+    let computers = Math.floor(Math.random() * 3) + 1;  /* Math.floor = 소수점을 버린다 */
+    let users = document.getElementById("userSelectVal").value;
+    console.log(typeof users);  
+
+    //let user = 유저가 선택한 값
+   
+    //console.log(document.getElementById("userSelectVal")).value;
+    console.log(typeof user);
+    console.log(users, computers);
+   //테이블에 이미지를 넣어보자
+    let userImg = "";
+    let computerImg = "";
+    let userPick = "";
+    let computerPick = "";
+    let result ="";
+    let score = "";
+    let data = 3;// 전역변수 처음에 메모리에 올려놓고 스크립트 전체에 쓸수있슴.
+    switch(users){
+    case "1":
+      userImg = "<img src='img/scissors.png'>";
+      userPick = "1"
+      break;
+    case "2":
+      userImg = "<img src='img/rock.png'>";
+      userPick = "2"
+      break;
+    case "3":
+      userImg = "<img src='img/paper.png'>";
+      userPick = "3"
+    
+    }
+    switch(computers){
+    case 1:
+      computerImg = "<img src='img/scissors.png'>";
+      computerPick = "1"
+      break;
+    case 2:
+      computerImg = "<img src='img/rock.png'>";
+      computerPick = "2"
+      break;
+    case 3:
+      computerImg = "<img src='img/paper.png'>";
+      computerPick = "3"
+      break;
+    }
+    if(userPick == computerPick){
+     result = "드로우";
+     // draw = draw + 1;
+     draw++;
+    } else if (userPick == "1" && computerPick == "3" ||
+               userPick == "2" && computerPick == "1" ||
+               userPick == "3" && computerPick == "2")
+               {
+     result = "승리";
+     win++;
+     //win = win + 1;
+    } else if (userPick == "1" && computerPick == "2" ||
+            userPick == "2" && computerPick == "3" ||
+            userPick == "3" && computerPick == "1")
+            {
+              result = "패배";
+              lose++;
+           //   lose = lose + 1;
+         }
+  
+    document.getElementById("vicRate").innerHTML = `"${win}승리 ${draw}드로우 ${lose}패배`;
+    winRate = win / (win + draw + lose) * 100; // 퍼센트로 계산
+    document.getElementById("winRate").innerHTML = ` ${
+      Math.round(winRate * 10) / 10
+    }%`;
+    console.log(document.getElementById("user"))
+    console.log(computerImg)
+    console.log(userPick,computerPick)
+    document.getElementById("user").innerHTML = userImg;
+    document.getElementById("computer").innerHTML = computerImg;
+    document.getElementById("result").innerHTML = `<h3>${result}</h3>`
+    //승패 처리
+    
+    
+  } 
+
+  </script>
+</head>
+<body>
+  <h1>가위,바위,보</h1>
+  <div class="userInput">
+    <select name="" id="userSelectVal">
+      <option value="1">가위</option>
+      <option value="2">바위</option>
+      <option value="3">보</option>
+    </select>
+    <input type="button" value="선택" onclick="gameStart();" />
+  </div>
+
+  <table border="1">
+    <tr>
+      <td>User</td>
+      <td>Computer</td>
+    </tr>
+    <tr>
+      <td id="user"></td>
+      <td id="computer"></td>
+    </tr>
+  </table>
+  <div id="result"></div>
+  <div id="vicRate">n승 n무 n패</div>
+  <div id="winRate"></div>
+</body>
+</html>

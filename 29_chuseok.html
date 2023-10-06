@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추석 숙제</title>
+    <script>
+        let ar = new Array(6);
+        ar[0] = new Array(6); // 0번째 행
+        ar[1] = new Array(6); // 1번째 행
+        // 0번째 행
+      ar[0][0] = "이름";
+      ar[0][1] = "국어";
+      ar[0][2] = "영어";
+      ar[0][3] = "수학";
+      ar[0][4] = "총점";
+      ar[0][5] = "평균";
+      // 1번째 행
+      ar[1][0] = "서지우";
+      ar[1][1] = "";
+      ar[1][2] = "";
+      ar[1][3] = "";
+      ar[1][4] = "";
+      ar[1][5] = "";
+
+      console.log(ar);
+      console.log(ar.length);
+
+      // ar의 모든 데이터를 테이블 태그를 이용하여 출력하자.
+    
+      let output = "<table border='1'>";
+        for(let i = 0; i < ar.length; i++){
+            // i = 0,1
+            output +="<tr>"
+            for(let j = 0; j < ar[0].length; j++){
+            // j = 0,1,2
+            output += `<td>${ar[i][j]}</td>`;
+          } 
+          output += "</tr>";{
+          output[i] = window.prompt(`${ar[i]}}데이터를 입력하세요`);
+    }
+      }
+      
+          output += "</table>";
+        document.write(output);
+       //총점 구하기
+       ar[4] = Number(ar[1]) + Number(ar[2]) + Number(ar[3]);
+       ar[5] = Math.round((ar[4] / 3) * 100) / 100;
+       console.log(ar);
+       
+      
+             //정렬
+      for (let i = 0; i > ar.length - 1; i++){
+      // i = 0, 1, 2, ...,9
+      for (let j = i + 1; j < ar.length; i++){
+          //내림차순 정렬
+      
+        if (ar[i] > ar[j]) {
+            let tmp = ar[j];
+            ar[j] = ar[i];
+            data[i] = tmp;       
+        }
+    }
+    
+  }
+
+  
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

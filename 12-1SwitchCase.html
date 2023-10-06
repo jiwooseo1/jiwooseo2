@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘저녁 뭐먹지</title>
+</head>
+<body>
+  <h1 class="title">오늘의 추천 메뉴</h1>
+  <div >음식메뉴</div><div id="foodname"></div>
+  
+  <script>
+      let randNum = 0;
+      let foodname = "";      
+   
+      randNum = Math.floor(Math.random() * 7 + 1);
+      console.log(randNum);
+  
+      switch(randNum) {
+        case 1:
+          foodname = " : 햄버거 ";    
+          break;
+        case 2:
+          foodname = " : 떡볶이 ";     
+          break;
+        case 3:
+          foodname = " : 짜장면 ";     
+          break;
+        case 4:
+          foodname = " : 쌀국수 ";     
+          break;
+        case 5:
+          foodname = " : 김치찌개 ";     
+          break;
+        case 6:
+          foodname = " : 라면 ";     
+          break;
+        case 7:
+          foodname = " : 돈까스 ";     
+          break;
+
+      }
+      // debugger
+      console.log(document.getElementById("foodname"));
+      document.getElementById("foodname").innerText = foodname;
+    
+
+      
+    
+
+  </script>
+</body>
+</html>
